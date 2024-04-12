@@ -11,8 +11,8 @@ RUN apt-get update && \
 # Làm cho thư mục /opt/adguardhome làm thư mục làm việc
 WORKDIR /opt/adguardhome
 
-# Sử dụng cổng 53 cho DNS và 80 cho giao diện quản trị
-EXPOSE 53 80
+# Sử dụng tất cả các cổng mặc định của AdGuard Home
+EXPOSE 53/tcp 53/udp 67/udp 68/tcp 68/udp 80/tcp 443/tcp 853/tcp 3000/tcp
 
 # Khởi động AdGuard Home
 CMD ["./AdGuardHome", "-s", "start"]
